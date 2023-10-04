@@ -6,15 +6,21 @@ import {guardarDB, leerDB} from './helpers/guardarArchivo.js'
 
 const main = async() => {
     let opcion = '';
-    const tareasDB = await leerDB(); 
+    const tareas = new Tareas();
+
+    const tareasDB = await leerDB();
+   
 
     if(tareasDB){
         tareas.cargarTareasFromArray(tareasDB)
     }
 
+
     do{
         //IMPRIMIR EL MENU
         opcion = await inquirerMenu();
+       
+
         //al elegir una opcion del menu, este retorna un valor numerico que entra en este ciclo
         switch (opcion) {
             case '1':
